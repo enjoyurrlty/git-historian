@@ -86,7 +86,7 @@ function CommitsList({ token }: CommitsList) {
               key={commit.url}
               author={commit.committer.name}
               message={commit.message}
-              timestamp={commit.committer.date}
+              date={commit.committer.date}
             />
           ))}
         </ul>

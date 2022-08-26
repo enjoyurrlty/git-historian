@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Octokit } from '@octokit/core';
 import Commit from './Commit';
 
-enum RequestDetails {
+enum CommitsRequestDetails {
   Method = 'GET',
   Url = '/repos/{owner}/{repo}/commits',
   Owner = 'enjoyurrlty',
@@ -40,10 +40,13 @@ function CommitsList({ token }: CommitsList) {
 
       try {
         const result = await octokit.request(
-          [RequestDetails.Method, RequestDetails.Url].join(' '),
+          [
+            CommitsRequestDetails.Method,
+            CommitsRequestDetails.Url,
+          ].join(' '),
           {
-            owner: RequestDetails.Owner,
-            repo: RequestDetails.Repo,
+            owner: CommitsRequestDetails.Owner,
+            repo: CommitsRequestDetails.Repo,
           }
         );
 

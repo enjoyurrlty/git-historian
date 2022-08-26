@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Octokit } from '@octokit/core';
-import Commit from './components/Commit';
-
-import './App.css';
+import CommitsList from './components/CommitsList';
+import Layout from './components/Layout';
+import Header from './components/Header';
 
 // TODO: temporary solution
 const token = import.meta.env.PERSONAL_ACCESS_TOKEN;
@@ -29,19 +29,10 @@ function App() {
   }, []);
 
   return (
-    <div className='w-full'>
-      <h2 className='text-5xl mb-5'>Welcome to Git Historian!</h2>
-      <ul>
-        {data.map(({ commit }) => (
-          <Commit
-            key={commit.url}
-            author={commit.committer.name}
-            message={commit.message}
-            timestamp={commit.committer.date}
-          />
-        ))}
-      </ul>
-    </div>
+    <Layout>
+      <Header />
+      <CommitsList data={data} />
+    </Layout>
   );
 }
 

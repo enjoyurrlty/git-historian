@@ -4,7 +4,7 @@ import Header from './components/Header';
 import AccessKeyForm from './components/AccessKeyForm';
 import { useSessionStorage } from './hooks/useSessionStorage';
 
-// TODO: temporary solution
+// For local use only
 const token = import.meta.env.VITE_PERSONAL_ACCESS_TOKEN;
 
 function App() {
